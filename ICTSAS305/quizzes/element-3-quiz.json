@@ -1,0 +1,68 @@
+{
+  "title": "Element 3 Quiz - Obtain Client Feedback",
+  "description": "<p>Test your understanding of gathering and using client feedback effectively.</p>",
+  "settings": {
+    "quiz_type": "assignment",
+    "allowed_attempts": 2,
+    "time_limit": 15,
+    "shuffle_questions": true,
+    "shuffle_answers": true,
+    "show_correct_answers": true,
+    "show_correct_answers_at": null,
+    "one_question_at_a_time": false,
+    "cant_go_back": false,
+    "scoring_policy": "keep_highest"
+  },
+  "questions": [
+    {
+      "type": "multiple_choice",
+      "text": "<p>What is the main purpose of obtaining client feedback?</p>",
+      "answers": [
+        {"text": "To fulfill company requirements", "correct": false},
+        {"text": "To identify areas for improvement and enhance service quality", "correct": true},
+        {"text": "To prove the client was wrong", "correct": false},
+        {"text": "To generate reports for management", "correct": false}
+      ],
+      "points": 1.0
+    },
+    {
+      "type": "fill_in_blank",
+      "text": "<p>Feedback questions should be specific, ___, relevant, and brief.</p>",
+      "answers": ["measurable"],
+      "points": 1.0
+    },
+    {
+      "type": "multiple_choice",
+      "text": "<p>Which feedback method allows for the MOST personal interaction and clarifying questions?</p>",
+      "answers": [
+        {"text": "Online surveys", "correct": false},
+        {"text": "Email forms", "correct": false},
+        {"text": "Phone follow-up or in-person interview", "correct": true},
+        {"text": "Automated feedback systems", "correct": false}
+      ],
+      "points": 1.0
+    },
+    {
+      "type": "fill_in_blank",
+      "text": "<p>When analyzing feedback, you should look for ___ themes rather than focusing on individual complaints.</p>",
+      "answers": ["recurring", "common", "repeated", "pattern"],
+      "points": 1.0
+    },
+    {
+      "type": "multiple_choice",
+      "text": "<p>After implementing changes based on client feedback, what should you do?</p>",
+      "answers": [
+        {"text": "Move on to the next client", "correct": false},
+        {"text": "Let clients know you've taken action on their feedback", "correct": true},
+        {"text": "Wait for clients to notice the changes", "correct": false},
+        {"text": "Keep the changes confidential", "correct": false}
+      ],
+      "points": 1.0
+    },
+    {
+      "type": "essay_question",
+      "text": "<p>Design a brief feedback form (3-5 questions) that you would use after providing technical support to a client. Explain why you chose each question. (5-6 sentences)</p>",
+      "points": 5.0
+    }
+  ]
+}

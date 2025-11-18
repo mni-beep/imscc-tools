@@ -1,0 +1,140 @@
+{
+  "title": "Final Knowledge Test - ICTSAS305",
+  "description": "<p>Comprehensive assessment covering all three elements of providing ICT advice to clients.</p>",
+  "settings": {
+    "quiz_type": "assignment",
+    "allowed_attempts": 2,
+    "time_limit": 45,
+    "shuffle_questions": true,
+    "shuffle_answers": true,
+    "show_correct_answers": false,
+    "show_correct_answers_at": null,
+    "one_question_at_a_time": true,
+    "cant_go_back": false,
+    "scoring_policy": "keep_highest"
+  },
+  "questions": [
+    {
+      "type": "multiple_choice",
+      "text": "<p>When reviewing client support issues, what is the benefit of checking previous logs?</p>",
+      "answers": [
+        {"text": "To assign blame for recurring issues", "correct": false},
+        {"text": "To find proven solutions and identify patterns", "correct": true},
+        {"text": "To calculate billing hours", "correct": false},
+        {"text": "To evaluate previous technicians' performance", "correct": false}
+      ],
+      "points": 1.0
+    },
+    {
+      "type": "fill_in_blank",
+      "text": "<p>Effective client communication requires using clear, ___ language.</p>",
+      "answers": ["jargon-free", "simple", "plain", "non-technical"],
+      "points": 1.0
+    },
+    {
+      "type": "multiple_choice",
+      "text": "<p>What must be documented when investigating a support issue?</p>",
+      "answers": [
+        {"text": "Only the final outcome", "correct": false},
+        {"text": "Steps taken, root cause, solution, and limitations", "correct": true},
+        {"text": "Client complaints only", "correct": false},
+        {"text": "Time spent on each step", "correct": false}
+      ],
+      "points": 1.0
+    },
+    {
+      "type": "multiple_choice",
+      "text": "<p>Before implementing a technical solution, you must:</p>",
+      "answers": [
+        {"text": "Complete all testing internally", "correct": false},
+        {"text": "Obtain client approval", "correct": true},
+        {"text": "Purchase all necessary hardware", "correct": false},
+        {"text": "Train all staff members", "correct": false}
+      ],
+      "points": 1.0
+    },
+    {
+      "type": "fill_in_blank",
+      "text": "<p>A Service Level ___ (SLA) defines the level of service expected from a vendor.</p>",
+      "answers": ["Agreement"],
+      "points": 1.0
+    },
+    {
+      "type": "multiple_choice",
+      "text": "<p>When providing technical advice to non-technical clients, you should:</p>",
+      "answers": [
+        {"text": "Use as much technical terminology as possible", "correct": false},
+        {"text": "Use analogies and avoid jargon", "correct": true},
+        {"text": "Assume they understand basic IT concepts", "correct": false},
+        {"text": "Provide only written documentation", "correct": false}
+      ],
+      "points": 1.0
+    },
+    {
+      "type": "fill_in_blank",
+      "text": "<p>The two main types of technical support are in-house support and ___ support.</p>",
+      "answers": ["vendor", "external"],
+      "points": 1.0
+    },
+    {
+      "type": "multiple_choice",
+      "text": "<p>What should be provided to clients along with technical training?</p>",
+      "answers": [
+        {"text": "Verbal instructions only", "correct": false},
+        {"text": "Manuals and help documentation", "correct": true},
+        {"text": "Source code for all software", "correct": false},
+        {"text": "Direct access to vendor support", "correct": false}
+      ],
+      "points": 1.0
+    },
+    {
+      "type": "multiple_choice",
+      "text": "<p>The primary purpose of obtaining client feedback is to:</p>",
+      "answers": [
+        {"text": "Complete company paperwork", "correct": false},
+        {"text": "Identify areas for improvement", "correct": true},
+        {"text": "Justify billing amounts", "correct": false},
+        {"text": "Create marketing materials", "correct": false}
+      ],
+      "points": 1.0
+    },
+    {
+      "type": "fill_in_blank",
+      "text": "<p>Good feedback questions should be specific, measurable, ___, and brief.</p>",
+      "answers": ["relevant"],
+      "points": 1.0
+    },
+    {
+      "type": "multiple_choice",
+      "text": "<p>When analyzing client feedback, you should:</p>",
+      "answers": [
+        {"text": "Act on every single comment immediately", "correct": false},
+        {"text": "Look for recurring patterns and prioritize issues", "correct": true},
+        {"text": "Ignore negative feedback", "correct": false},
+        {"text": "Only focus on positive comments", "correct": false}
+      ],
+      "points": 1.0
+    },
+    {
+      "type": "fill_in_blank",
+      "text": "<p>After implementing changes based on feedback, you should ___ clients that you've taken action.</p>",
+      "answers": ["notify", "inform", "tell", "let know"],
+      "points": 1.0
+    },
+    {
+      "type": "essay_question",
+      "text": "<p>Describe the complete process for handling a new client support request, from initial review through to obtaining feedback. Include at least 5 key steps. (6-8 sentences)</p>",
+      "points": 6.0
+    },
+    {
+      "type": "essay_question",
+      "text": "<p>Explain why it's important to adjust your communication style based on the client's technical knowledge level. Provide a specific example of how you would explain a network connectivity issue to both a technical and non-technical client. (5-7 sentences)</p>",
+      "points": 6.0
+    },
+    {
+      "type": "essay_question",
+      "text": "<p>You've received feedback from multiple clients that your response times are too slow. Describe how you would: 1) Analyze this feedback, 2) Prioritize the issue, 3) Implement changes, and 4) Follow up with clients. (6-8 sentences)</p>",
+      "points": 6.0
+    }
+  ]
+}

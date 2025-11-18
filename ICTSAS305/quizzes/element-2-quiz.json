@@ -1,0 +1,84 @@
+{
+  "title": "Element 2 Quiz - Provide Technical Advice",
+  "description": "<p>Test your knowledge of providing effective technical advice and support to clients.</p>",
+  "settings": {
+    "quiz_type": "assignment",
+    "allowed_attempts": 2,
+    "time_limit": 25,
+    "shuffle_questions": true,
+    "shuffle_answers": true,
+    "show_correct_answers": true,
+    "show_correct_answers_at": null,
+    "one_question_at_a_time": false,
+    "cant_go_back": false,
+    "scoring_policy": "keep_highest"
+  },
+  "questions": [
+    {
+      "type": "multiple_choice",
+      "text": "<p>Before implementing a solution, what must you obtain from the client?</p>",
+      "answers": [
+        {"text": "Their credit card information", "correct": false},
+        {"text": "Approval to proceed", "correct": true},
+        {"text": "A signed contract", "correct": false},
+        {"text": "Their complete IT inventory", "correct": false}
+      ],
+      "points": 1.0
+    },
+    {
+      "type": "fill_in_blank",
+      "text": "<p>When working with non-technical clients, you should avoid using technical ___ and instead use ___ they can understand.</p>",
+      "answers": ["jargon", "language", "terms"],
+      "points": 1.0
+    },
+    {
+      "type": "multiple_choice",
+      "text": "<p>What does SLA stand for in the context of vendor support?</p>",
+      "answers": [
+        {"text": "Software License Agreement", "correct": false},
+        {"text": "Service Level Agreement", "correct": true},
+        {"text": "System Load Average", "correct": false},
+        {"text": "Standard Logging Application", "correct": false}
+      ],
+      "points": 1.0
+    },
+    {
+      "type": "multiple_choice",
+      "text": "<p>What are the TWO main types of technical support?</p>",
+      "answers": [
+        {"text": "Email and phone", "correct": false},
+        {"text": "In-house and vendor", "correct": true},
+        {"text": "Free and paid", "correct": false},
+        {"text": "Local and remote", "correct": false}
+      ],
+      "points": 1.0
+    },
+    {
+      "type": "fill_in_blank",
+      "text": "<p>You should always ___ the level of support agreed upon with the client.</p>",
+      "answers": ["document", "record", "write down"],
+      "points": 1.0
+    },
+    {
+      "type": "multiple_choice",
+      "text": "<p>What should you provide to clients along with technical support?</p>",
+      "answers": [
+        {"text": "Only verbal instructions", "correct": false},
+        {"text": "Manuals and help documentation", "correct": true},
+        {"text": "Access to your personal phone number", "correct": false},
+        {"text": "Copies of all software licenses", "correct": false}
+      ],
+      "points": 1.0
+    },
+    {
+      "type": "essay_question",
+      "text": "<p>Explain how you would adjust your communication style when providing technical advice to a client with limited technical knowledge versus a highly technical client. Provide specific examples. (4-5 sentences)</p>",
+      "points": 4.0
+    },
+    {
+      "type": "essay_question",
+      "text": "<p>Why is it important to investigate and document the amount of technical support a client may require? What factors would you consider? (3-4 sentences)</p>",
+      "points": 3.0
+    }
+  ]
+}

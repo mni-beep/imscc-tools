@@ -1,0 +1,61 @@
+{
+  "modules": [
+    {
+      "title": "Introduction",
+      "items": [
+        {
+          "type": "page",
+          "id": "home"
+        }
+      ]
+    },
+    {
+      "title": "Element 1 - Review Client Support Issues",
+      "items": [
+        {
+          "type": "page",
+          "id": "element-1"
+        },
+        {
+          "type": "quiz",
+          "id": "element-1-quiz"
+        }
+      ]
+    },
+    {
+      "title": "Element 2 - Provide Technical Advice",
+      "items": [
+        {
+          "type": "page",
+          "id": "element-2"
+        },
+        {
+          "type": "quiz",
+          "id": "element-2-quiz"
+        }
+      ]
+    },
+    {
+      "title": "Element 3 - Obtain Client Feedback",
+      "items": [
+        {
+          "type": "page",
+          "id": "element-3"
+        },
+        {
+          "type": "quiz",
+          "id": "element-3-quiz"
+        }
+      ]
+    },
+    {
+      "title": "Final Assessment",
+      "items": [
+        {
+          "type": "quiz",
+          "id": "final-test"
+        }
+      ]
+    }
+  ]
+}

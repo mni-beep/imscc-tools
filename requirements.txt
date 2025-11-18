@@ -1,0 +1,2 @@
+# IMSCC Tools - no external dependencies required for basic usage
+# All functionality uses Python standard library

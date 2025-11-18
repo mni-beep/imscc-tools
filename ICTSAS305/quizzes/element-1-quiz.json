@@ -1,0 +1,68 @@
+{
+  "title": "Element 1 Quiz - Review Client Support Issues",
+  "description": "<p>Test your understanding of how to review and resolve client support issues.</p>",
+  "settings": {
+    "quiz_type": "assignment",
+    "allowed_attempts": 2,
+    "time_limit": 20,
+    "shuffle_questions": true,
+    "shuffle_answers": true,
+    "show_correct_answers": true,
+    "show_correct_answers_at": null,
+    "one_question_at_a_time": false,
+    "cant_go_back": false,
+    "scoring_policy": "keep_highest"
+  },
+  "questions": [
+    {
+      "type": "multiple_choice",
+      "text": "<p>What should be your FIRST step when handling a new client support issue?</p>",
+      "answers": [
+        {"text": "Immediately start fixing the problem", "correct": false},
+        {"text": "Check the support log for the new problem details", "correct": true},
+        {"text": "Call the client to schedule a meeting", "correct": false},
+        {"text": "Search for vendor support documentation", "correct": false}
+      ],
+      "points": 1.0
+    },
+    {
+      "type": "multiple_choice",
+      "text": "<p>Why is it important to check previous logs for similar problems?</p>",
+      "answers": [
+        {"text": "It's required by company policy", "correct": false},
+        {"text": "To find proven solutions and save investigation time", "correct": true},
+        {"text": "To see which technician handled it before", "correct": false},
+        {"text": "To copy the exact same solution without modifications", "correct": false}
+      ],
+      "points": 1.0
+    },
+    {
+      "type": "fill_in_blank",
+      "text": "<p>When communicating with clients, you should use ___ language and avoid technical ___.</p>",
+      "answers": ["clear", "plain", "simple"],
+      "points": 1.0
+    },
+    {
+      "type": "fill_in_blank",
+      "text": "<p>After implementing a solution, you should obtain client ___ to ensure the issue is fully resolved.</p>",
+      "answers": ["feedback"],
+      "points": 1.0
+    },
+    {
+      "type": "multiple_choice",
+      "text": "<p>What information should be included when documenting a support issue?</p>",
+      "answers": [
+        {"text": "Only the final solution", "correct": false},
+        {"text": "Just the client's complaint", "correct": false},
+        {"text": "Steps taken, root cause, proposed solution, and any limitations", "correct": true},
+        {"text": "The amount of time spent on the issue", "correct": false}
+      ],
+      "points": 1.0
+    },
+    {
+      "type": "essay_question",
+      "text": "<p>Describe a situation where you would need to notify a client about the results of your investigation. What key information should you include in your communication? (3-4 sentences)</p>",
+      "points": 3.0
+    }
+  ]
+}
