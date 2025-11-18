@@ -468,25 +468,3 @@ course.imscc (ZIP)
 └── web_resources/
     └── files...
 ```
-
----
-
-## Examples
-
-Run included examples:
-
-```bash
-python examples.py
-```
-
-Creates example IMSCC files in `output/` directory.
-
----
-
-## License
-
-MIT License - use freely in your projects!
-
-## Contributing
-
-Issues and pull requests welcome!
