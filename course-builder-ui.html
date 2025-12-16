@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IMSCC Course Builder - Prompt Generator</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        .container { max-width: 900px; margin: 0 auto; }
+        header { text-align: center; color: white; margin-bottom: 30px; }
+        header h1 { font-size: 2.2em; margin-bottom: 8px; }
+        header p { opacity: 0.9; }
+        .card {
+            background: white;
+            border-radius: 12px;
+            padding: 24px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        .card h2 {
+            color: #1f2937;
+            margin-bottom: 16px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #e5e7eb;
+        }
+        label { display: block; margin-bottom: 5px; font-weight: 600; color: #374151; }
+        input[type="text"], input[type="number"], textarea, select {
+            width: 100%;
+            padding: 10px 12px;
+            border: 2px solid #e5e7eb;
+            border-radius: 8px;
+            font-size: 1em;
+            margin-bottom: 15px;
+        }
+        input:focus, textarea:focus, select:focus { outline: none; border-color: #667eea; }
+        textarea { min-height: 80px; resize: vertical; }
+        .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
+        .help-text { font-size: 0.85em; color: #6b7280; margin: -10px 0 15px 0; }
+        
+        .btn {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 8px;
+            font-size: 1em;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .btn-primary { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; }
+        .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4); }
+        .btn-add { background: #10b981; color: white; padding: 8px 16px; }
+        .btn-add:hover { background: #059669; }
+        .btn-danger { background: #ef4444; color: white; padding: 6px 12px; font-size: 0.9em; }
+        .btn-danger:hover { background: #dc2626; }
+        .btn-secondary { background: #e5e7eb; color: #374151; }
+        .btn-secondary:hover { background: #d1d5db; }
+
+        .item-row {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+            padding: 10px;
+            background: #f9fafb;
+            border-radius: 8px;
+            margin-bottom: 8px;
+            border: 1px solid #e5e7eb;
+        }
+        .item-row select { width: 130px; margin: 0; }
+        .item-row input { flex: 1; margin: 0; }
+        
+        .module-block {
+            border: 2px solid #e5e7eb;
+            border-radius: 10px;
+            padding: 15px;
+            margin-bottom: 15px;
+            background: #fafafa;
+        }
+        .module-header { display: flex; gap: 10px; align-items: center; margin-bottom: 12px; }
+        .module-header input { flex: 1; margin: 0; font-weight: 600; }
+        .module-items { margin-left: 15px; }
+
+        .source-item {
+            display: flex;
+            gap: 10px;
+            align-items: flex-start;
+            padding: 12px;
+            background: #f0fdf4;
+            border-radius: 8px;
+            margin-bottom: 10px;
+            border: 2px solid #86efac;
+        }
+        .source-item input, .source-item textarea { margin: 0; }
+        .source-item textarea { min-height: 60px; }
+
+        .checkbox-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 8px;
+        }
+        .checkbox-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 12px;
+            background: #f3f4f6;
+            border-radius: 6px;
+        }
+        .checkbox-item input { width: 18px; height: 18px; }
+        .checkbox-item label { margin: 0; font-weight: normal; cursor: pointer; }
+
+        .output-section {
+            background: #1f2937;
+            border-radius: 12px;
+            padding: 24px;
+        }
+        .output-section h2 { color: white; border-bottom-color: #374151; }
+        #promptOutput {
+            background: #111827;
+            color: #10b981;
+            padding: 20px;
+            border-radius: 8px;
+            font-family: 'Courier New', monospace;
+            white-space: pre-wrap;
+            max-height: 400px;
+            overflow-y: auto;
+            line-height: 1.5;
+        }
+        .output-buttons { display: flex; gap: 10px; margin-top: 15px; }
+        .btn-copy { background: #10b981; color: white; }
+        .btn-copy:hover { background: #059669; }
+
+        @media (max-width: 600px) {
+            .form-row { grid-template-columns: 1fr; }
+            .checkbox-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🎓 IMSCC Course Builder</h1>
+            <p>Define your course structure — attach source files when prompting</p>
+        </header>
+
+        <!-- Course Metadata -->
+        <div class="card">
+            <h2>📋 Course Information</h2>
+            <div class="form-row">
+                <div>
+                    <label>Course Title *</label>
+                    <input type="text" id="courseTitle" placeholder="e.g., Physics Unit 3 and 4">
+                </div>
+                <div>
+                    <label>Course Code *</label>
+                    <input type="text" id="courseCode" placeholder="e.g., 12PHY34">
+                </div>
+            </div>
+            <label>Course Description</label>
+            <textarea id="courseDescription" placeholder="Brief overview of the course..."></textarea>
+            <div class="form-row">
+                <div>
+                    <label>Target Audience</label>
+                    <input type="text" id="audience" placeholder="e.g., Year 12 Physics students">
+                </div>
+                <div>
+                    <label>Default View</label>
+                    <select id="defaultView">
+                        <option value="modules">Modules</option>
+                        <option value="wiki">Wiki (Home Page)</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <!-- Source Files -->
+        <div class="card">
+            <h2>📎 Source Files (Attach to Prompt)</h2>
+            <p class="help-text">List the files you'll attach. Describe what content to extract from each.</p>
+            <div id="sourcesList"></div>
+            <button class="btn btn-add" onclick="addSource()">+ Add Source File</button>
+        </div>
+
+        <!-- Module Structure -->
+        <div class="card">
+            <h2>📚 Module Structure</h2>
+            <p class="help-text">Define modules and their items. Reference source files for content.</p>
+            <div id="moduleList"></div>
+            <button class="btn btn-add" onclick="addModule()">+ Add Module</button>
+        </div>
+
+        <!-- Content Preferences -->
+        <div class="card">
+            <h2>🎨 Styling & Preferences</h2>
+            
+            <label>CSS Components to Use</label>
+            <div class="checkbox-grid">
+                <div class="checkbox-item">
+                    <input type="checkbox" id="css-learning-goals" checked>
+                    <label for="css-learning-goals">🎯 Learning Goals</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="css-key-concept" checked>
+                    <label for="css-key-concept">💡 Key Concepts</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="css-tip" checked>
+                    <label for="css-tip">💡 Tips</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="css-note" checked>
+                    <label for="css-note">⚠️ Notes/Warnings</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="css-practice" checked>
+                    <label for="css-practice">✏️ Practice Tasks</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="css-tables" checked>
+                    <label for="css-tables">📊 Styled Tables</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="css-accordions" checked>
+                    <label for="css-accordions">📂 Accordions</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="css-banner" checked>
+                    <label for="css-banner">🎨 Course Banner</label>
+                </div>
+            </div>
+
+            <label style="margin-top: 20px;">Additional Instructions</label>
+            <textarea id="additionalNotes" placeholder="Any special requirements, tone preferences, formatting notes..."></textarea>
+        </div>
+
+        <!-- Generate -->
+        <div style="text-align: center; margin: 30px 0;">
+            <button class="btn btn-primary" style="font-size: 1.2em; padding: 15px 40px;" onclick="generatePrompt()">
+                🚀 Generate Prompt
+            </button>
+        </div>
+
+        <!-- Output -->
+        <div class="card output-section" id="outputSection" style="display: none;">
+            <h2>📋 Generated Prompt</h2>
+            <p style="color: #9ca3af; margin-bottom: 15px;">Copy this prompt and attach your source files when sending to the AI.</p>
+            <div id="promptOutput"></div>
+            <div class="output-buttons">
+                <button class="btn btn-copy" onclick="copyPrompt()">📋 Copy to Clipboard</button>
+                <button class="btn btn-secondary" onclick="downloadPrompt()">💾 Download .txt</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let moduleCount = 0;
+        let itemCount = 0;
+        let sourceCount = 0;
+
+        // Add source file entry
+        function addSource() {
+            sourceCount++;
+            const container = document.getElementById('sourcesList');
+            const div = document.createElement('div');
+            div.className = 'source-item';
+            div.id = `source-${sourceCount}`;
+            div.innerHTML = `
+                <div style="flex: 1;">
+                    <input type="text" class="source-name" placeholder="Filename (e.g., chapter1.pdf, quiz-questions.docx)">
+                    <textarea class="source-instructions" placeholder="What to extract: e.g., 'Create quiz questions from this', 'Use as content for Week 1 page', 'Extract formulas and examples'"></textarea>
+                </div>
+                <button class="btn btn-danger" onclick="removeElement('source-${sourceCount}')">×</button>
+            `;
+            container.appendChild(div);
+        }
+
+        // Add module
+        function addModule() {
+            moduleCount++;
+            const container = document.getElementById('moduleList');
+            const div = document.createElement('div');
+            div.className = 'module-block';
+            div.id = `module-${moduleCount}`;
+            div.innerHTML = `
+                <div class="module-header">
+                    <input type="text" class="module-title" placeholder="Module Title (e.g., Chapter 1 - Newton's Laws)">
+                    <button class="btn btn-danger" onclick="removeElement('module-${moduleCount}')">Remove</button>
+                </div>
+                <div class="module-items" id="module-${moduleCount}-items"></div>
+                <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+                    <button class="btn btn-secondary" onclick="addItem(${moduleCount}, 'page')">+ Page</button>
+                    <button class="btn btn-secondary" onclick="addItem(${moduleCount}, 'quiz')">+ Quiz</button>
+                    <button class="btn btn-secondary" onclick="addItem(${moduleCount}, 'assignment')">+ Assignment</button>
+                    <button class="btn btn-secondary" onclick="addItem(${moduleCount}, 'file')">+ File Link</button>
+                </div>
+            `;
+            container.appendChild(div);
+        }
+
+        // Add module item
+        function addItem(moduleId, type) {
+            itemCount++;
+            const container = document.getElementById(`module-${moduleId}-items`);
+            const div = document.createElement('div');
+            div.className = 'item-row';
+            div.id = `item-${itemCount}`;
+            
+            const icons = { page: '📄', quiz: '📝', assignment: '✏️', file: '📁' };
+            const placeholders = {
+                page: 'page-id (e.g., newtons-laws)',
+                quiz: 'quiz-id (e.g., chapter-1-quiz)',
+                assignment: 'assignment-id (e.g., lab-report-1)',
+                file: 'filename in web_resources/'
+            };
+            
+            div.innerHTML = `
+                <span style="font-size: 1.2em;">${icons[type]}</span>
+                <input type="hidden" class="item-type" value="${type}">
+                <input type="text" class="item-id" placeholder="${placeholders[type]}" style="flex: 1;">
+                <input type="text" class="item-source" placeholder="Source file or description" style="flex: 1.5;">
+                <button class="btn btn-danger" onclick="removeElement('item-${itemCount}')">×</button>
+            `;
+            container.appendChild(div);
+        }
+
+        function removeElement(id) {
+            document.getElementById(id)?.remove();
+        }
+
+        // Generate prompt
+        function generatePrompt() {
+            const title = document.getElementById('courseTitle').value || '[Course Title]';
+            const code = document.getElementById('courseCode').value || '[CODE]';
+            const desc = document.getElementById('courseDescription').value;
+            const audience = document.getElementById('audience').value;
+            const defaultView = document.getElementById('defaultView').value;
+            const notes = document.getElementById('additionalNotes').value;
+
+            let prompt = `# Course Creation Request for IMSCC-Tools\n\n`;
+            
+            // Metadata
+            prompt += `## Course Metadata\n`;
+            prompt += `- **Title**: ${title}\n`;
+            prompt += `- **Code**: ${code}\n`;
+            if (desc) prompt += `- **Description**: ${desc}\n`;
+            if (audience) prompt += `- **Audience**: ${audience}\n`;
+            prompt += `- **Default View**: ${defaultView}\n\n`;
+
+            // Source files
+            const sources = document.querySelectorAll('.source-item');
+            if (sources.length > 0) {
+                prompt += `## Source Files (Attached)\n`;
+                prompt += `*I have attached the following files. Please extract content as described:*\n\n`;
+                sources.forEach((src, i) => {
+                    const name = src.querySelector('.source-name')?.value || `file${i+1}`;
+                    const instructions = src.querySelector('.source-instructions')?.value || '';
+                    prompt += `### 📎 ${name}\n`;
+                    if (instructions) prompt += `${instructions}\n`;
+                    prompt += `\n`;
+                });
+            }
+
+            // Modules
+            const modules = document.querySelectorAll('.module-block');
+            if (modules.length > 0) {
+                prompt += `## Module Structure\n\n`;
+                modules.forEach(mod => {
+                    const modTitle = mod.querySelector('.module-title')?.value || 'Untitled Module';
+                    prompt += `### ${modTitle}\n`;
+                    
+                    const items = mod.querySelectorAll('.item-row');
+                    if (items.length > 0) {
+                        items.forEach((item, idx) => {
+                            const type = item.querySelector('.item-type')?.value || 'page';
+                            const id = item.querySelector('.item-id')?.value || '';
+                            const source = item.querySelector('.item-source')?.value || '';
+                            const icons = { page: '📄', quiz: '📝', assignment: '✏️', file: '📁' };
+                            prompt += `${idx + 1}. ${icons[type]} **${type}**: \`${id}\``;
+                            if (source) prompt += ` ← ${source}`;
+                            prompt += `\n`;
+                        });
+                    } else {
+                        prompt += `*(No items defined)*\n`;
+                    }
+                    prompt += `\n`;
+                });
+            }
+
+            // CSS
+            const css = [];
+            if (document.getElementById('css-learning-goals').checked) css.push('info-learning-goals');
+            if (document.getElementById('css-key-concept').checked) css.push('info-key-concept');
+            if (document.getElementById('css-tip').checked) css.push('info-tip');
+            if (document.getElementById('css-note').checked) css.push('info-note');
+            if (document.getElementById('css-practice').checked) css.push('task-practice');
+            if (document.getElementById('css-tables').checked) css.push('styled-tables');
+            if (document.getElementById('css-accordions').checked) css.push('accordions');
+            if (document.getElementById('css-banner').checked) css.push('course-banner');
+
+            prompt += `## Styling\n`;
+            prompt += `Use these CSS components from canvas-course.css: ${css.join(', ')}\n\n`;
+
+            // Additional notes
+            if (notes) {
+                prompt += `## Additional Instructions\n${notes}\n\n`;
+            }
+
+            // Output instructions
+            prompt += `## Requested Output\n`;
+            prompt += `Generate the IMSCC-Tools template files:\n`;
+            prompt += `1. \`course.json\` - Course metadata\n`;
+            prompt += `2. \`modules.json\` - Module organization\n`;
+            prompt += `3. \`wiki_content/*.html\` - All pages (use CSS classes, local links)\n`;
+            prompt += `4. \`quizzes/*.json\` - Quiz files with questions from sources\n`;
+            prompt += `5. \`assignments/*.json\` - Assignment files\n`;
+            prompt += `6. \`rubrics/*.json\` - Rubrics if needed\n\n`;
+            prompt += `**Link formats:**\n`;
+            prompt += `- Files: \`../web_resources/filename.pdf\`\n`;
+            prompt += `- Pages: \`other-page.html\`\n`;
+            prompt += `- Include \`<link rel="stylesheet" href="../css/canvas-course.css">\` in HTML head\n`;
+
+            // Display
+            document.getElementById('promptOutput').textContent = prompt;
+            document.getElementById('outputSection').style.display = 'block';
+            document.getElementById('outputSection').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function copyPrompt() {
+            navigator.clipboard.writeText(document.getElementById('promptOutput').textContent)
+                .then(() => alert('✓ Copied to clipboard!'));
+        }
+
+        function downloadPrompt() {
+            const blob = new Blob([document.getElementById('promptOutput').textContent], { type: 'text/plain' });
+            const a = document.createElement('a');
+            a.href = URL.createObjectURL(blob);
+            a.download = 'course-prompt.txt';
+            a.click();
+        }
+
+        // Initialize with one source and one module
+        addSource();
+        addModule();
+    </script>
+</body>
+</html>
