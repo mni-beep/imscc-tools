@@ -1,0 +1,106 @@
+{
+  "title": "Chapter 1.1 - Motion Review Quiz",
+  "description": "<p>Test your understanding of fundamental motion concepts before diving into Newton's Laws.</p>",
+  "settings": {
+    "quiz_type": "assignment",
+    "allowed_attempts": 2,
+    "time_limit": 15,
+    "shuffle_questions": true,
+    "shuffle_answers": true,
+    "show_correct_answers": true,
+    "scoring_policy": "keep_highest"
+  },
+  "questions": [
+    {
+      "type": "multiple_choice",
+      "text": "<p>Which of the following is a <strong>vector</strong> quantity?</p>",
+      "answers": [
+        {"text": "Speed", "correct": false},
+        {"text": "Distance", "correct": false},
+        {"text": "Velocity", "correct": true},
+        {"text": "Time", "correct": false}
+      ],
+      "points": 1.0
+    },
+    {
+      "type": "multiple_choice",
+      "text": "<p>A car travels 100 m north, then 60 m south. What is the car's <strong>displacement</strong>?</p>",
+      "answers": [
+        {"text": "160 m", "correct": false},
+        {"text": "40 m north", "correct": true},
+        {"text": "40 m south", "correct": false},
+        {"text": "100 m north", "correct": false}
+      ],
+      "points": 1.0
+    },
+    {
+      "type": "multiple_choice",
+      "text": "<p>On a velocity-time graph, the <strong>gradient</strong> represents:</p>",
+      "answers": [
+        {"text": "Displacement", "correct": false},
+        {"text": "Distance", "correct": false},
+        {"text": "Speed", "correct": false},
+        {"text": "Acceleration", "correct": true}
+      ],
+      "points": 1.0
+    },
+    {
+      "type": "multiple_choice",
+      "text": "<p>On a velocity-time graph, the <strong>area under the curve</strong> represents:</p>",
+      "answers": [
+        {"text": "Acceleration", "correct": false},
+        {"text": "Displacement", "correct": true},
+        {"text": "Average velocity", "correct": false},
+        {"text": "Force", "correct": false}
+      ],
+      "points": 1.0
+    },
+    {
+      "type": "numerical_answer",
+      "text": "<p>A cyclist accelerates uniformly from rest at 2.0 m/s². How far does the cyclist travel in 5.0 seconds?</p><p><em>Use s = ut + ½at². Enter your answer in metres.</em></p>",
+      "answers": [
+        {"exact": 25, "margin": 0.5}
+      ],
+      "points": 2.0
+    },
+    {
+      "type": "numerical_answer",
+      "text": "<p>A ball is dropped from rest and falls freely under gravity (g = 10 m/s²). What is its velocity after 3.0 seconds?</p><p><em>Enter your answer in m/s (magnitude only, as a positive number).</em></p>",
+      "answers": [
+        {"exact": 30, "margin": 0.5}
+      ],
+      "points": 2.0
+    },
+    {
+      "type": "true_false",
+      "text": "<p>An object moving at constant velocity has zero acceleration.</p>",
+      "correct_answer": true,
+      "points": 1.0
+    },
+    {
+      "type": "true_false",
+      "text": "<p>If an object has a negative velocity, it must be slowing down.</p>",
+      "correct_answer": false,
+      "points": 1.0
+    },
+    {
+      "type": "multiple_choice",
+      "text": "<p>Which kinematic equation would you use to find the final velocity of an object if you know the initial velocity, acceleration, and displacement, but NOT the time?</p>",
+      "answers": [
+        {"text": "v = u + at", "correct": false},
+        {"text": "s = ut + ½at²", "correct": false},
+        {"text": "v² = u² + 2as", "correct": true},
+        {"text": "s = ½(u + v)t", "correct": false}
+      ],
+      "points": 1.0
+    },
+    {
+      "type": "numerical_answer",
+      "text": "<p>A car travelling at 20 m/s brakes with a deceleration of 4.0 m/s². What distance does it travel before coming to rest?</p><p><em>Use v² = u² + 2as. Enter your answer in metres.</em></p>",
+      "answers": [
+        {"exact": 50, "margin": 1}
+      ],
+      "points": 2.0
+    }
+  ]
+}

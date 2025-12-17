@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Background Knowledge - Motion Review</title>
+    <link rel="stylesheet" href="../css/canvas-course.css">
+</head>
+<body>
+
+<!-- CANVAS_META
+title: Background Knowledge - Motion Review
+-->
+
+<div style="background: linear-gradient(135deg, #1e3a5f 0%, #2d5a87 100%); color: white; padding: 40px 30px; border-radius: 8px; margin-bottom: 30px; text-align: center; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
+    <h1 style="margin: 0 0 10px 0; font-size: 2.2em; font-weight: bold;">📐 Chapter 1.2: Motion Review</h1>
+    <p style="margin: 0; font-size: 1.1em; opacity: 0.95;">Background Knowledge for Newton's Laws</p>
+</div>
+
+<div class="info-learning-goals">
+    <h2>🎯 Learning Intentions</h2>
+    <p>By the end of this section, you should be able to:</p>
+    <ul>
+        <li>Define and distinguish between <strong>distance</strong> and <strong>displacement</strong></li>
+        <li>Define and distinguish between <strong>speed</strong> and <strong>velocity</strong></li>
+        <li>Calculate <strong>acceleration</strong> from velocity-time data</li>
+        <li>Apply the <strong>kinematic equations</strong> to solve motion problems</li>
+        <li>Interpret and sketch <strong>motion graphs</strong> (position-time, velocity-time, acceleration-time)</li>
+    </ul>
+</div>
+
+<h2>📚 Key Concepts Review</h2>
+
+<details open>
+    <summary><strong>Scalars vs Vectors</strong></summary>
+    
+    <table>
+        <thead>
+            <tr>
+                <th>Scalar Quantities</th>
+                <th>Vector Quantities</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Magnitude only</td>
+                <td>Magnitude AND direction</td>
+            </tr>
+            <tr>
+                <td>Distance (m)</td>
+                <td>Displacement (m)</td>
+            </tr>
+            <tr>
+                <td>Speed (m/s)</td>
+                <td>Velocity (m/s)</td>
+            </tr>
+            <tr>
+                <td>Time (s)</td>
+                <td>Acceleration (m/s²)</td>
+            </tr>
+            <tr>
+                <td>Mass (kg)</td>
+                <td>Force (N)</td>
+            </tr>
+        </tbody>
+    </table>
+</details>
+
+<details>
+    <summary><strong>Kinematic Equations (SUVAT)</strong></summary>
+    
+    <div class="info-key-concept">
+        <h3>💡 The Four Kinematic Equations</h3>
+        <p>These equations apply to <strong>uniformly accelerated motion</strong> (constant acceleration):</p>
+        <table>
+            <thead>
+                <tr>
+                    <th>Equation</th>
+                    <th>Variables Used</th>
+                    <th>Missing Variable</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><code>v = u + at</code></td>
+                    <td>v, u, a, t</td>
+                    <td>s</td>
+                </tr>
+                <tr>
+                    <td><code>s = ut + ½at²</code></td>
+                    <td>s, u, a, t</td>
+                    <td>v</td>
+                </tr>
+                <tr>
+                    <td><code>s = vt - ½at²</code></td>
+                    <td>s, v, a, t</td>
+                    <td>u</td>
+                </tr>
+                <tr>
+                    <td><code>v² = u² + 2as</code></td>
+                    <td>v, u, a, s</td>
+                    <td>t</td>
+                </tr>
+            </tbody>
+        </table>
+        <p><strong>Where:</strong> s = displacement, u = initial velocity, v = final velocity, a = acceleration, t = time</p>
+    </div>
+</details>
+
+<details>
+    <summary><strong>Motion Graphs</strong></summary>
+    
+    <h4>Position-Time Graphs</h4>
+    <ul>
+        <li><strong>Gradient</strong> = velocity</li>
+        <li>Straight line = constant velocity</li>
+        <li>Curved line = changing velocity (acceleration)</li>
+        <li>Horizontal line = stationary</li>
+    </ul>
+    
+    <h4>Velocity-Time Graphs</h4>
+    <ul>
+        <li><strong>Gradient</strong> = acceleration</li>
+        <li><strong>Area under curve</strong> = displacement</li>
+        <li>Horizontal line = constant velocity (no acceleration)</li>
+        <li>Straight diagonal line = constant acceleration</li>
+    </ul>
+    
+    <div class="info-tip">
+        <h4>💡 Graph Conversion Tip</h4>
+        <p>To go from position-time → velocity-time: find the gradient at each point.</p>
+        <p>To go from velocity-time → position-time: find the area under the curve.</p>
+    </div>
+</details>
+
+<h2>✏️ Practice Problems</h2>
+
+<div class="task-practice">
+    <h3>Practice Exercise 1: SUVAT Problems</h3>
+    
+    <p><strong>Question 1:</strong> A car accelerates uniformly from rest to 20 m/s over a distance of 100 m. Calculate:</p>
+    <ol type="a">
+        <li>The acceleration of the car</li>
+        <li>The time taken to reach 20 m/s</li>
+    </ol>
+    
+    <details>
+        <summary>Show Solution</summary>
+        <p><strong>Given:</strong> u = 0 m/s, v = 20 m/s, s = 100 m</p>
+        <p><strong>a)</strong> Using v² = u² + 2as</p>
+        <p>20² = 0² + 2 × a × 100</p>
+        <p>400 = 200a</p>
+        <p><strong>a = 2.0 m/s²</strong></p>
+        <p><strong>b)</strong> Using v = u + at</p>
+        <p>20 = 0 + 2.0 × t</p>
+        <p><strong>t = 10 s</strong></p>
+    </details>
+    
+    <p><strong>Question 2:</strong> A ball is thrown vertically upward with an initial velocity of 15 m/s. Taking g = 10 m/s² downward, calculate:</p>
+    <ol type="a">
+        <li>The maximum height reached</li>
+        <li>The total time in the air</li>
+    </ol>
+    
+    <details>
+        <summary>Show Solution</summary>
+        <p><strong>Given:</strong> u = +15 m/s, a = -10 m/s² (taking up as positive), v = 0 at max height</p>
+        <p><strong>a)</strong> Using v² = u² + 2as</p>
+        <p>0 = 15² + 2(-10)s</p>
+        <p>0 = 225 - 20s</p>
+        <p><strong>s = 11.25 m</strong></p>
+        <p><strong>b)</strong> Time to reach max height: v = u + at</p>
+        <p>0 = 15 + (-10)t</p>
+        <p>t = 1.5 s</p>
+        <p>Total time = 2 × 1.5 = <strong>3.0 s</strong></p>
+    </details>
+</div>
+
+<div class="info-note">
+    <h3>⚠️ Common Mistakes to Avoid</h3>
+    <ul>
+        <li><strong>Sign errors:</strong> Always define a positive direction and stick to it</li>
+        <li><strong>Units:</strong> Ensure all quantities are in SI units before calculating</li>
+        <li><strong>Scalar vs Vector:</strong> Speed is always positive; velocity can be negative</li>
+        <li><strong>g value:</strong> Use g = 9.8 m/s² (or 10 m/s² if specified) and remember it acts <em>downward</em></li>
+    </ul>
+</div>
+
+<h2>📖 Resources</h2>
+<ul>
+    <li><a href="../web_resources/c01NewtonsLawsOfMotion.pdf">📄 Chapter 1 PDF - Newton's Laws of Motion</a></li>
+</ul>
+
+<div style="text-align: center; margin-top: 40px; padding-top: 20px; border-top: 2px solid #e5e7eb;">
+    <p style="color: #6b7280; font-size: 0.9em;">VCE Physics Unit 3 & 4 • 12PHY34</p>
+</div>
+
+</body>
+</html>

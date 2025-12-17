@@ -1,0 +1,24 @@
+{
+  "modules": [
+    {
+      "title": "📘 Chapter 1 - Newton's Laws of Motion",
+      "items": [
+        {
+          "type": "quiz",
+          "id": "1-1-q1",
+          "indent": 0
+        },
+        {
+          "type": "page",
+          "id": "chapter-1-2",
+          "indent": 0
+        },
+        {
+          "type": "file",
+          "id": "c01NewtonsLawsOfMotion.pdf",
+          "indent": 0
+        }
+      ]
+    }
+  ]
+}
